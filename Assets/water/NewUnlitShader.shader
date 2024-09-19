@@ -2,7 +2,7 @@ Shader "Unlit/NewUnlitShader"
 {
     Properties
     {
-        // _MainTex ("Texture", 2D) = "white" {}
+  
         _Color ("color",Color) = (1,1,1,1)
         _freq("frequency",float) = 0
         _amp("amp",float) = 0
@@ -85,7 +85,7 @@ Shader "Unlit/NewUnlitShader"
             v2f vert (appdata v)
             {
                 v2f o;
-                // float2 ver = v.vertex.xy;
+              
                 float wave = fractionalBrownian(v.vertex.xy).x ;
                 v.vertex.z += wave;
                 float3 binormal = float3(1,0,fractionalBrownian(v.vertex.xy).y );
@@ -101,8 +101,7 @@ Shader "Unlit/NewUnlitShader"
 
             float4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                // fixed4 col = float4(0,0,1,1);
+               
                 
                 float3 N = normalize(i.normals);
                 float3 L = normalize(_WorldSpaceLightPos0.xyz);
@@ -113,11 +112,8 @@ Shader "Unlit/NewUnlitShader"
                 float3 diffuseLight = saturate(dot(L,N))*_LightColor0.xyz;
                 float2 uv = i.uv ;
                 float3 specularLight = pow(saturate(dot(H,N))  ,_specularPower)*_LightColor0.xyz;
-                // return float4(uv.xxx    ,1);
-                // return float4(i.normals*0.5 +0.5,1);
-                // return float4(specularLight,1);
-                // return float4(random(i.uv),0,0,1) ;
-                return float4(saturate(diffuseLight*0.4 + specularLight + _Color.xyz*0.5 +sky*0.4) ,1);
+                
+                return float4(saturate(diffuseLight*0.3 + specularLight + _Color.xyz*0.2 +sky*0.3) ,1);
                 
                
             }

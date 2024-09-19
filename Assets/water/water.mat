@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _sky:
-        m_Texture: {fileID: 8900000, guid: 1153dc89e66880c4eb7adc16ba588855, type: 3}
+        m_Texture: {fileID: 8900000, guid: 3b5d67736d7b8ad4f8da4d58eaef0b98, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -83,7 +83,7 @@ Material:
     - _ZWrite: 1
     - _amp: 1
     - _freq: 0.1
-    - _specularPower: 1000
+    - _specularPower: 100
     - _speed: 3
     - _waves: 32
     m_Colors:
